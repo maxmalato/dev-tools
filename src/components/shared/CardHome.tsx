@@ -11,10 +11,10 @@ interface CardHomeProps {
 
 export function CardHome({ title, description, href, Icon }: CardHomeProps) {
     return (
-        <Link to={href} className="bg-white rounded-2xl flex flex-col px-6 py-8 my-3 gap-3 items-center shadow-md hover:shadow-lg transition-shadow duration-300">
+        <Link to={href} className="bg-white rounded-2xl flex flex-col px-6 py-8 my-3 gap-3 items-center justify-center shadow-md hover:shadow-lg transition-shadow duration-300 w-80 h-60">
             <p className="bg-[#e7f6fd] w-fit p-2 rounded-full"><Icon color="#26a8ed" size={35} /></p>
-            <h1 className="font-bold text-xl">{title}</h1>
-            <h2 className="text-gray-400">{description}</h2>
+            <h1 className="font-bold text-xl text-center">{title}</h1>
+            <h2 className="text-gray-400 text-center">{description}</h2>
         </Link>
     )
 }
