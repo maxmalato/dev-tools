@@ -1,4 +1,5 @@
 import { CardHome } from "@/components/shared/CardHome";
+import { Header } from "@/components/shared/Header";
 import { RectangleEllipsis, FileText, Car, BriefcaseBusiness, Building2, Plus } from "lucide-react";
 
 const features = [
@@ -43,6 +44,7 @@ const features = [
 export default function Home() {
     return (
         <>
+            <Header />
             {features.map((feature) => (
                 <CardHome
                     key={feature.href}
