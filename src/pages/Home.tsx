@@ -43,7 +43,7 @@ const features = [
 
 export default function Home() {
     return (
-        <div className="flex flex-col items-center p-6 gap-3">
+        <div className="flex flex-col items-center gap-3">
             <Header />
             <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-3">
                 {features.map((feature) => (
