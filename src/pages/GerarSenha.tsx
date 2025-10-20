@@ -1,8 +1,16 @@
 import { Header } from "@/components/shared/Header";
-import { Copy } from "lucide-react";
+import { Copy, RotateCw } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
+import { CheckboxShared } from "@/components/shared/CheckboxShared";
+import { useState } from "react";
+
 
 export function GerarSenha() {
+    const [includeUppercase, setIncludeUppercase] = useState(true);
+    const [includeLowercase, setIncludeLowercase] = useState(true);
+    const [includeNumbers, setIncludeNumbers] = useState(true);
+    const [includeSymbols, setIncludeSymbols] = useState(true);
+
     return (
         <>
             <Header />
@@ -23,6 +31,41 @@ export function GerarSenha() {
                     </div>
                     <Slider defaultValue={[33]} max={100} step={1} className="bg-gray-300" />
                 </section>
+
+                <section className="space-y-4 mt-6">
+                    <CheckboxShared
+                        id="uppercase"
+                        label="Maiúsculas"
+                        checked={includeUppercase}
+                        onCheckedChange={setIncludeUppercase}
+                    />
+
+                    <CheckboxShared
+                        id="lowercase"
+                        label="Minúsculas"
+                        checked={includeLowercase}
+                        onCheckedChange={setIncludeLowercase}
+                    />
+                    <CheckboxShared
+                        id="numbers"
+                        label="Números"
+                        checked={includeNumbers}
+                        onCheckedChange={setIncludeNumbers}
+                    />
+                    <CheckboxShared
+                        id="symbols"
+                        label="Símbolos"
+                        checked={includeSymbols}
+                        onCheckedChange={setIncludeSymbols}
+                    />
+                </section>
+
+                <button className="w-full bg-[#26a8ed] hover:bg-[#1e90cc] transition-colors text-white font-bold py-3 rounded-lg mt-6 flex justify-center items-center gap-2 cursor-pointer">
+                    <RotateCw />
+                    Gerar Senha
+                </button>
+
+
             </main>
         </>
     )
