@@ -1,9 +1,9 @@
 import { Header } from "@/components/shared/Header";
-import { Copy, RotateCw } from "lucide-react";
+import { Copy } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { CheckboxShared } from "@/components/shared/CheckboxShared";
+import { ButtonShared } from "@/components/shared/ButtonShared";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 
 
 export function GerarSenha() {
@@ -13,7 +13,7 @@ export function GerarSenha() {
     const [includeSymbols, setIncludeSymbols] = useState(true);
 
     return (
-        <div className="max-w-2xl mx-auto px-2">
+        <div>
             <Header />
             <main className="mt-10">
                 <h1 className="font-bold text-2xl text-center mb-4">Gerador de senhas</h1>
@@ -61,10 +61,7 @@ export function GerarSenha() {
                     />
                 </section>
 
-                <Button className="w-full bg-[#26a8ed] hover:bg-[#1e90cc] transition-colors text-white font-bold py-3 rounded-lg mt-6 flex justify-center items-center gap-2 cursor-pointer">
-                    <RotateCw />
-                    Gerar Senha
-                </Button>
+                <ButtonShared title="Gerar senha" />
             </main>
         </div>
     )

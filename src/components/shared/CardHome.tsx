@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { type LucideIcon } from "lucide-react";
 
-// Props
 interface CardHomeProps {
     title: string;
     description: string;
