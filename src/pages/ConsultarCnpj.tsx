@@ -1,18 +1,35 @@
+import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { consultarCnpj } from "@/api";
+import { CnpjData } from "@/types";
 import { ButtonShared } from "@/components/shared/ButtonShared";
 import { Search } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { IMaskInput } from "react-imask";
 
 export default function ConsultarCnpj() {
+    const [cnpjInput, setCnpjInput] = useState("");
+    const { mutate, data, isPending, isError, error} = useMutation<CnpjData, Error, string>({
+        mutationFn: consultarCnpj,
+    })
+    const handleSearch = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (cnpjInput.trim()) {
+            mutate(cnpjInput);
+        }
+    };
     return (
         <main>
             <h1 className="font-bold text-2xl text-center mt-8 mb-2"> Consulta de CNPJ</h1>
 
-            <section>
-                <h2>CNPJ</h2>
-                <div>
-                    <input type="text" className="border border-gray-400 rounded-lg p-2 w-full" placeholder="00.000.000/0000-00" />
-                    <ButtonShared title="Consultar" Icon={Search} />
+            <form onSubmit={handleSearch}>
+                <div className="grid w-full items-center gap-2">
+                    <Label htmlFor="cnpj">CNPJ</Label>
+                    <IMaskInput as={Input} id="cnpj" mask="00.000.000/0000-00" placeholder="00.000.000/0000-00" value={cnpjInput} onAccept={(value) => setCnpjInput(value)} />
                 </div>
-            </section>
+                <ButtonShared title="Consultar" Icon={Search} type="" />
+            </form>
 
             <section className="max-w-5xl mx-auto p-6 space-y-6">
                 <div className="bg-white rounded-lg shadow p-6">
