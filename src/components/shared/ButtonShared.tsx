@@ -1,15 +1,16 @@
 import { type ButtonHTMLAttributes } from "react";
 import { Button } from "../ui/button";
 import { type LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface ButtonSharedProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     title: string;
     Icon: LucideIcon;
 }
 
-export function ButtonShared({ title, Icon }: ButtonSharedProps) {
+export function ButtonShared({ title, Icon, className, ...rest }: ButtonSharedProps) {
     return (
-        <Button className="w-full bg-[#26a8ed] hover:bg-[#1e90cc] transition-colors text-white font-bold p-6 rounded-lg mt-6 flex justify-center items-center gap-2 cursor-pointer">
+        <Button className={cn("w-full bg-[#26a8ed] hover:bg-[#1e90cc] transition-colors text-white font-bold p-6 rounded-lg mt-6 flex justify-center items-center gap-2 cursor-pointer", className)} {...rest}>
             <Icon color="white" size={30} />
             {title}
         </Button>

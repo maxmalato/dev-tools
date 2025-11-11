@@ -44,7 +44,9 @@ export const gerarCnpj = async (): Promise<string> => {
 export const gerarInscricaoEstadual = async (
   uf: GenerateInscricaoEstadualdRequest["uf"]
 ): Promise<string> => {
-  const { data } = await apiClient.get<string[]>(`/inscricao-estadual/random?${uf}`)
+  const { data } = await apiClient.get<string[]>(
+    `/inscricao-estadual/random?${uf}`
+  );
 
   return data[0];
 };
@@ -58,3 +60,36 @@ export const gerarSenha = async (
 
   return data;
 };
+
+// export const gerarSenha = async (
+//   payload: GeneratePasswordRequest
+// ): Promise<GeneratePasswordResponse> => {
+//   console.log("Gerando senha localmente com as opções:", payload);
+
+//   const {
+//     length = 12,
+//     letters = true,
+//     numbers = true,
+//     symbols = true,
+//   } = payload;
+
+//   let charset = "";
+
+//   if (letters)
+//     charset += "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//   if (numbers) charset += "0123456789";
+//   if (symbols) charset += "!@#$%^&*()_+-=[]{}|;:',.<>?";
+
+//   if (charset === "") {
+//     charset = "abcdefghijklmnopqrstuvwxyz";
+//   }
+
+//   let newPassword = "";
+//   for (let i = 0; i < length; i++) {
+//     newPassword += charset.charAt(Math.floor(Math.random() * charset.length));
+//   }
+
+//   await new Promise((resolve) => setTimeout(resolve, 300));
+
+//   return { password: newPassword };
+// };

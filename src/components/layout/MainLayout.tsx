@@ -7,7 +7,7 @@ export default function MainLayout() {
         <main>
             <Header/>
             <Outlet />
-            <Toaster richColors/>
+            <Toaster richColors position="top-right"/>
         </main>
     )
 };
