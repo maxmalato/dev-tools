@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Copy, RotateCcw } from "lucide-react";
+import {  RotateCcw } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 
 // Importar função da API e os tipos
@@ -11,6 +11,7 @@ import { Slider } from "@/components/ui/slider";
 import { CheckboxShared } from "@/components/shared/CheckboxShared";
 import { ButtonShared } from "@/components/shared/ButtonShared";
 import { toast } from "sonner";
+import { ResultBoxShared } from "@/components/shared/ResultBoxShared";
 
 
 export function GerarSenha() {
@@ -56,14 +57,11 @@ export function GerarSenha() {
         <main className="mt-10">
             <h1 className="font-bold text-2xl text-center mb-4">Gerador de senhas</h1>
 
-            <section className="flex gap-4 justify-between items-center bg-[#f1f5f9] rounded-lg p-4">
-                <p className={`font-bold text-lg flex-grow ${generatedPassword ? "text-[#26a8ed]" : "text-gray-400"}`}>{generatedPassword || "Sua senha aparecerá aqui"}</p>
-                <div
-                    onClick={handleCopy}
-                    className="bg-[#c5e5f6] p-2 rounded-lg cursor-pointer transition-transform active:scale-90">
-                    <Copy color="#26a8ed" />
-                </div>
-            </section>
+            <ResultBoxShared
+                value={generatedPassword}
+                placeholder="Sua senha aparecerá aqui."
+                onCopy={handleCopy}
+            />
 
             <section className="mt-6">
                 <div className="flex justify-between mb-4">

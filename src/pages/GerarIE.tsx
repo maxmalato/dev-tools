@@ -5,13 +5,12 @@ import { toast } from "sonner";
 // Componentes
 import { ButtonShared } from "@/components/shared/ButtonShared";
 import { BRAZIL_STATES } from "@/lib/constants";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 // API
 import { gerarInscricaoEstadual } from "@/api";
-import { RotateCcw, Copy } from "lucide-react";
+import { RotateCcw } from "lucide-react";
+import { ResultBoxShared } from "@/components/shared/ResultBoxShared";
 export function GerarIE() {
     const [selectedUf, setSelectedUf] = useState("");
 
@@ -51,25 +50,31 @@ export function GerarIE() {
         <main className="mt-10">
             <h1 className="font-bold text-2xl text-center mt-8 mb-2">Gerador de Inscrição Estadual</h1>
 
+            <ResultBoxShared
+                value={generatedIE}
+                placeholder="Sua Inscrição Estadual aparecerá aqui."
+                onCopy={handleCopy}
+            />
+
             <section className="mt-6 space-y-2">
                 <Label htmlFor="estado-select">Estado</Label>
 
-                <Select
+                <select
+                    id="estado-select"
                     value={selectedUf}
-                    onValueChange={setSelectedUf}
+                    onChange={(e) => setSelectedUf(e.target.value)}
                     disabled={isPending}
+                    className="w-full rounded border px-3 py-2"
                 >
-                    <SelectTrigger id="estado-select" className="w-full">
-                        <SelectValue placeholder="Selecione um estado" />
-                    </SelectTrigger>
-                    <SelectContent>
-                        {BRAZIL_STATES.map((state) => (
-                            <SelectItem key={state.value} value={state.value}>
-                                {state.label}
-                            </SelectItem>
-                        ))}
-                    </SelectContent>
-                </Select>
+                    <option value="" disabled>
+                        Selecione um estado
+                    </option>
+                    {BRAZIL_STATES.map((state) => (
+                        <option key={state.value} value={state.value}>
+                            {state.label}
+                        </option>
+                    ))}
+                </select>
             </section>
 
             <ButtonShared
@@ -78,25 +83,6 @@ export function GerarIE() {
                 onClick={handleGenerate}
                 disabled={isPending}
             />
-
-            <section className="mt-6 space-y-2">
-                <Label htmlFor="ie-gerada">Inscrição Estadual Gerada</Label>
-                <div className="relative">
-                    <Input
-                        id="ie-gerada"
-                        readOnly
-                        disabled
-                        value={generatedIE}
-                        placeholder="Número gerado..."
-                        className="pr-10" // Dando espaço para o ícone
-                    />
-                    <Copy
-                        color="#6a7282"
-                        className="cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4"
-                        onClick={handleCopy}
-                    />
-                </div>
-            </section>
 
             {error && (
                 <p className="text-red-500 text-center mt-4">{error.message}</p>
