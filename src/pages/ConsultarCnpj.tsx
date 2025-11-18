@@ -1,10 +1,20 @@
+import { ButtonShared } from "@/components/shared/ButtonShared";
+import { Input } from "@/components/ui/input";
+import { Label } from "@radix-ui/react-label";
+import { Search } from "lucide-react";
 
 export default function ConsultarCnpj() {
     return (
         <main>
             <h1 className="font-bold text-2xl text-center mt-8 mb-2"> Consulta de CNPJ</h1>
 
-
+            <section className="max-w-5xl mx-auto flex flex-col md:flex-row justify-center items-center md:gap-3">
+                <div className="w-96">
+                    <Label htmlFor="cnpj">CNPJ</Label>
+                    <Input type="text" id="cnpj" placeholder="Informe o CNPJ para consulta"></Input>
+                </div>
+                <ButtonShared Icon={Search} title="Consultar"  />
+            </section>
 
             <section className="max-w-5xl mx-auto p-6 space-y-6">
                 <div className="bg-white rounded-lg shadow p-6">

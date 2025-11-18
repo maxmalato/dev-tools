@@ -2,6 +2,7 @@ import axios from "axios";
 import type {
   CnpjDataResponse,
   GenerateInscricaoEstadualdRequest,
+  GenerateInscricaoEstadualdResponse,
   GeneratePasswordRequest,
   GeneratePasswordResponse,
 } from "@/types";
@@ -43,11 +44,11 @@ export const gerarCnpj = async (): Promise<string> => {
 export const gerarInscricaoEstadual = async (
   uf: GenerateInscricaoEstadualdRequest["uf"]
 ): Promise<string> => {
-  const { data } = await apiClient.get<string[]>("/inscricao-estadual/random", {
+  const { data } = await apiClient.get<GenerateInscricaoEstadualdResponse>("/inscricao-estadual/random", {
     params: { uf },
   });
 
-  return data[0];
+  return data.inscricaoEstadual.replace(" (MOCK)", "");
 };
 
 //* Gerar senha

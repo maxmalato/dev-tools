@@ -10,7 +10,7 @@ interface ButtonSharedProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export function ButtonShared({ title, Icon, className, ...rest }: ButtonSharedProps) {
     return (
-        <Button className={cn("w-full bg-[#26a8ed] hover:bg-[#1e90cc] transition-colors text-white font-bold p-6 rounded-lg mt-6 flex justify-center items-center gap-2 cursor-pointer", className)} {...rest}>
+        <Button className={cn("w-80 bg-[#26a8ed] hover:bg-[#1e90cc] transition-colors text-white font-bold p-6 rounded-lg mt-6 flex justify-center items-center gap-2 cursor-pointer", className)} {...rest}>
             <Icon color="white" size={30} />
             {title}
         </Button>

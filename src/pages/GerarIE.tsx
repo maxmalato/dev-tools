@@ -2,12 +2,10 @@ import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 
-// Componentes
 import { ButtonShared } from "@/components/shared/ButtonShared";
 import { BRAZIL_STATES } from "@/lib/constants";
 import { Label } from "@/components/ui/label";
 
-// API
 import { gerarInscricaoEstadual } from "@/api";
 import { RotateCcw } from "lucide-react";
 import { ResultBoxShared } from "@/components/shared/ResultBoxShared";
