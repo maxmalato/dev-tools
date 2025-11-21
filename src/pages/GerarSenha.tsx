@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {  RotateCcw } from "lucide-react";
+import { RotateCcw } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 
 // Importar função da API e os tipos
@@ -100,12 +100,14 @@ export function GerarSenha() {
                 />
             </section>
 
-            <ButtonShared
-                title={isPending ? "Gerando..." : "Gerar senha"}
-                Icon={RotateCcw}
-                onClick={handleGeneratePassword}
-                disabled={isPending}
-            />
+            <div className="flex justify-center">
+                <ButtonShared
+                    title={isPending ? "Gerando..." : "Gerar senha"}
+                    Icon={RotateCcw}
+                    onClick={handleGeneratePassword}
+                    disabled={isPending}
+                />
+            </div>
 
             {error && (
                 <p className="text-red-500 text-center mt-4">{error.message}</p>

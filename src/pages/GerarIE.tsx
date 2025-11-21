@@ -75,12 +75,14 @@ export function GerarIE() {
                 </select>
             </section>
 
-            <ButtonShared
-                title={isPending ? "Gerando..." : "Gerar Inscrição Estadual"}
-                Icon={RotateCcw}
-                onClick={handleGenerate}
-                disabled={isPending}
-            />
+            <div className="flex justify-center">
+                <ButtonShared
+                    title={isPending ? "Gerando..." : "Gerar Inscrição Estadual"}
+                    Icon={RotateCcw}
+                    onClick={handleGenerate}
+                    disabled={isPending}
+                />
+            </div>
 
             {error && (
                 <p className="text-red-500 text-center mt-4">{error.message}</p>
