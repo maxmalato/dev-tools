@@ -1,6 +1,7 @@
 import axios from "axios";
 import type {
   CnpjDataResponse,
+  GenerateCnpj,
   GenerateInscricaoEstadualdRequest,
   GenerateInscricaoEstadualdResponse,
   GeneratePasswordRequest,
@@ -35,9 +36,9 @@ export const consultarCnpj = async (
 
 //* Gerar dados de um CNPJ
 export const gerarCnpj = async (): Promise<string> => {
-  const { data } = await apiClient.get<string[]>(`/cnpj?new=true`);
+  const { data } = await apiClient.get<GenerateCnpj>("/cnpj/random");
 
-  return data[0];
+  return data.formatted;
 };
 
 //* Gerar dados de uma Inscrição Estadual

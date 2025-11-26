@@ -47,6 +47,7 @@ export function GerarIE() {
     return (
         <main className="mt-10">
             <h1 className="font-bold text-2xl text-center mt-8 mb-2">Gerador de Inscrição Estadual</h1>
+            <h2 className="text-gray-500 text-sm text-center mt-2 mb-8">Gere um número de Inscrição Estadual válido para o estado de sua escolha.</h2>
 
             <ResultBoxShared
                 value={generatedIE}
