@@ -12,7 +12,7 @@ import { CheckboxShared } from "@/components/shared/CheckboxShared";
 import { ButtonShared } from "@/components/shared/ButtonShared";
 import { toast } from "sonner";
 import { ResultBoxShared } from "@/components/shared/ResultBoxShared";
-import { ButtonBackShared } from "@/components/shared/ButtonBackShared";
+import { PageHeader } from "@/components/shared/PageHeader";
 
 
 export function GerarSenha() {
@@ -56,9 +56,10 @@ export function GerarSenha() {
 
     return (
         <main className="mt-10">
-            <h1 className="font-bold text-2xl text-center mb-4">Gerador de senhas</h1>
-
-            <ButtonBackShared />
+            <PageHeader
+                title="Gerador de Senhas"
+                subtitle="Gere senhas de forma rápida e seguras"
+            />
 
             <ResultBoxShared
                 value={generatedPassword}

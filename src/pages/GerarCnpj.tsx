@@ -4,6 +4,7 @@ import { ButtonShared } from "@/components/shared/ButtonShared";
 import { ResultBoxShared } from "@/components/shared/ResultBoxShared";
 import { RotateCcw } from "lucide-react";
 import { gerarCnpj } from "@/api";
+import { PageHeader } from "@/components/shared/PageHeader";
 
 export function GerarCnpj() {
     const { mutate, data, isPending } = useMutation({
@@ -34,8 +35,10 @@ export function GerarCnpj() {
     }
     return (
         <section>
-            <h1 className="font-bold text-2xl text-center">Gerador de CNPJ</h1>
-            <h2 className="text-gray-500 text-sm text-center mt-2">Gere um número de CNPJ válido instantaneamente</h2>
+            <PageHeader
+                title="Gerador de CNPJ"
+                subtitle="Gere um número de CNPJ válido instantaneamente"
+            />
 
             <div className="mt-10 flex flex-col">
                 <ResultBoxShared

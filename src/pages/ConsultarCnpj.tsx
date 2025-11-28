@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
 import { consultarCnpj } from "@/api/index";
 import type { CnpjDataResponse } from "@/types";
+import { PageHeader } from "@/components/shared/PageHeader";
 
 export default function ConsultarCnpj() {
     const [cnpjInput, setCnpjInput] = useState("");
@@ -39,7 +40,10 @@ export default function ConsultarCnpj() {
 
     return (
         <main>
-            <h1 className="font-bold text-2xl text-center mt-8 mb-2"> Consulta de CNPJ</h1>
+            <PageHeader
+                title="Cosultar CNPJ"
+                subtitle="Consulte CNPJ de forma simples e completa"
+            />
 
             <form onSubmit={handleSearch} className="max-w-5xl mx-auto flex flex-col md:flex-row justify-center items-end md:gap-3 p-4">
                 <div className="w-full md:w-96">
