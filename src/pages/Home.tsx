@@ -30,7 +30,8 @@ const features = [
         href: "#",
         title: "Nova Ferramenta",
         description: "Em breve mais funcionalidades.",
-        Icon: Plus
+        Icon: Plus,
+        disabled: true
     }
 ]
 
@@ -40,11 +41,12 @@ export default function Home() {
             <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-3">
                 {features.map((feature) => (
                     <CardHome
-                        key={feature.href}
+                        key={feature.title}
                         href={feature.href}
                         title={feature.title}
                         description={feature.description}
                         Icon={feature.Icon}
+                        disabled={feature.disabled}
                     />
                 ))}
             </main>

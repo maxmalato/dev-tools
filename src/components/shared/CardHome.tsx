@@ -1,16 +1,25 @@
 import { Link } from "react-router-dom";
 import { type LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface CardHomeProps {
     title: string;
     description: string;
     href: string;
     Icon: LucideIcon;
+    disabled?: boolean;
 }
 
-export function CardHome({ title, description, href, Icon }: CardHomeProps) {
+export function CardHome({ title, description, href, Icon, disabled }: CardHomeProps) {
     return (
-        <Link to={href} className="bg-white rounded-2xl flex flex-col px-6 py-8 my-3 gap-3 items-center justify-center shadow-md hover:shadow-lg transition-shadow duration-300 w-80 h-60">
+        <Link
+            to={href}
+            tabIndex={disabled ? -1 : undefined}
+            aria-disabled={disabled}
+            className={cn(
+                "bg-white rounded-2xl flex flex-col px-6 py-8 my-3 gap-3 items-center justify-center shadow-md hover:shadow-lg transition-shadow duration-300 w-80 h-60", disabled && "pointer-events-none opacity-50 grayscale cursor-not-allowed shadow-none"
+            )}
+        >
             <p className="bg-[#e7f6fd] w-fit p-2 rounded-full"><Icon color="#26a8ed" size={35} /></p>
             <h1 className="font-bold text-xl text-center">{title}</h1>
             <h2 className="text-gray-400 text-center">{description}</h2>
