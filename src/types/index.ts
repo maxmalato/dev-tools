@@ -12,6 +12,8 @@ export interface CnpjDataResponse {
   municipio: string;
   uf: string;
   cep: string;
+  telefone: string;
+  email: string;
   descricao_situacao_cadastral: string;
   cnae_fiscal_descricao: string;
 }

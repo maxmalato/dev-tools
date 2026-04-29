@@ -15,9 +15,9 @@ export default function ConsultarCnpj() {
     const [cnpjInput, setCnpjInput] = useState("");
     const { mutate, data, isPending } = useMutation<CnpjDataResponse, Error, string>({
         mutationFn: consultarCnpj,
-        onError: () => {
+        onError: (err) => {
             toast.error("Erro ao consultar CNPJ", {
-                description: "Verifique o número digitado e tente novamente."
+                description: err.message || "Verifique o número digitado e tente novamente."
             });
         },
         onSuccess: () => {
@@ -149,6 +149,14 @@ export default function ConsultarCnpj() {
                             <div>
                                 <p className="text-sm text-gray-500">CEP</p>
                                 <p className="font-semibold text-gray-800">{data.cep}</p>
+                            </div>
+                            <div>
+                                <p className="text-sm text-gray-500">Telefone</p>
+                                <p className="font-semibold text-gray-800">{data.telefone || "-"}</p>
+                            </div>
+                            <div>
+                                <p className="text-sm text-gray-500">E-mail</p>
+                                <p className="font-semibold text-gray-800 break-all">{data.email || "-"}</p>
                             </div>
                         </div>
                     </div>
