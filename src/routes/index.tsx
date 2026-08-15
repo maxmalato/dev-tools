@@ -5,6 +5,9 @@ import ConsultarCnpj from "@/pages/ConsultarCnpj";
 import { GerarSenha } from "@/pages/GerarSenha";
 import { GerarIE } from "@/pages/GerarIE";
 import { GerarCnpj } from "@/pages/GerarCnpj";
+import { GerarCpf } from "@/pages/GerarCpf";
+import { GerarRg } from "@/pages/GerarRg";
+import { GerarCnh } from "@/pages/GerarCnh";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +33,18 @@ const router = createBrowserRouter([
             {
                 path: "/gerar-cnpj",
                 element: <GerarCnpj />
+            },
+            {
+                path: "/gerar-cpf",
+                element: <GerarCpf />
+            },
+            {
+                path: "/gerar-rg",
+                element: <GerarRg />
+            },
+            {
+                path: "/gerar-cnh",
+                element: <GerarCnh />
             },
         ]
     }

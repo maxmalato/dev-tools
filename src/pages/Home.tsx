@@ -1,5 +1,14 @@
 import { CardHome } from "@/components/shared/CardHome";
-import { RectangleEllipsis, FileText, BriefcaseBusiness, Building2, Plus } from "lucide-react";
+import {
+    RectangleEllipsis,
+    FileText,
+    BriefcaseBusiness,
+    Building2,
+    Contact,
+    IdCard,
+    CarFront,
+    Plus
+} from "lucide-react";
 
 const features = [
     {
@@ -25,6 +34,24 @@ const features = [
         title: "Gerador de CNPJ",
         description: "Crie números de CNPJ.",
         Icon: BriefcaseBusiness
+    },
+    {
+        href: "/gerar-cpf",
+        title: "Gerador de CPF",
+        description: "Crie números de CPF.",
+        Icon: Contact
+    },
+    {
+        href: "/gerar-rg",
+        title: "Gerador de RG",
+        description: "Crie números de RG por estado.",
+        Icon: IdCard
+    },
+    {
+        href: "/gerar-cnh",
+        title: "Gerador de CNH",
+        description: "Crie números de registro de CNH.",
+        Icon: CarFront
     },
     {
         href: "#",

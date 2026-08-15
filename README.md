@@ -5,7 +5,7 @@
 ![React](https://img.shields.io/badge/react-18.2.0-61DAFB?logo=react)
 ![TypeScript](https://img.shields.io/badge/typescript-5.0-3178C6?logo=typescript)
 
-Este projeto reúne geradores de dados (CNPJ, Inscrição Estadual, Senhas) e consultas a APIs públicas em uma interface moderna, responsiva e performática.
+Este projeto reúne geradores de dados (CPF, RG, CNH, CNPJ, Inscrição Estadual e Senhas) e consultas a APIs públicas em uma interface moderna, responsiva e performática.
 
 ## 🚀 Funcionalidades
 
@@ -13,6 +13,9 @@ O projeto conta atualmente com as seguintes ferramentas:
 
 -   **🔑 Gerador de Senhas:** Cria senhas seguras com opções personalizáveis (tamanho, letras, números, símbolos).
 -   **🏢 Gerador de CNPJ:** Gera números de CNPJ válidos (com cálculo de dígito verificador) instantaneamente.
+-   **🪪 Gerador de CPF:** Gera números de CPF válidos com os dois dígitos verificadores.
+-   **🪪 Gerador de RG:** Gera números de RG conforme o formato do estado selecionado e calcula o dígito verificador quando há uma regra estadual pública verificável.
+-   **🚗 Gerador de CNH:** Gera números de registro de CNH válidos com seus dígitos verificadores.
 -   **📝 Gerador de Inscrição Estadual:** Gera IEs válidas para todos os 27 estados brasileiros.
 -   **🔍 Consulta de CNPJ:** Busca dados cadastrais completos de empresas em tempo real (Razão Social, Endereço, Situação Cadastral, etc.).
 
